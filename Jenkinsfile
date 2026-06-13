@@ -1,17 +1,18 @@
 Pipeline{
-    Stages{
-        Stage('Install'){
-            Steps{
+    agent any
+    stages{
+        stage('Install'){
+            steps{
                 sh 'npm install'
             }
         }
-        Stage('Build'){
-            Steps{
+        stage('Build'){
+            steps{
                 sh 'npm run build'
             }
         }
-        Stage('Deploy'){
-            Steps{
+        stage('Deploy'){
+            steps{
                 echo 'Deploying...'
                 sh '''
                 cp -r dist/* /var/www/html/
